@@ -1,4 +1,4 @@
-FROM mysql:8.0.30
+FROM mysql:8.4
 
 ENV MYSQL_DATABASE=php \
   MYSQL_USER=phper \
