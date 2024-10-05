@@ -1,6 +1,4 @@
-FROM mysql:8.4
-
-USER 1000:1000
+FROM mysql:8.0.30
 
 ENV MYSQL_DATABASE=php \
   MYSQL_USER=phper \
@@ -8,5 +6,3 @@ ENV MYSQL_DATABASE=php \
   MYSQL_ROOT_PASSWORD=secret \
   TZ=Asia/Tokyo
 
-COPY ./my.cnf /etc/my.cnf
-RUN chmod 644 /etc/my.cnf
