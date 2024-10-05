@@ -1,0 +1,9 @@
+{
+    "name": "tamagoage/pet-diary",
+    "autoload": {
+        "psr-4": {
+            "Tamagoage\\PetDiary\\": "src/"
+        }
+    },
+    "require": {}
+}
