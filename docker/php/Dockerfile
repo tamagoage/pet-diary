@@ -11,4 +11,4 @@ RUN apk update && \
 
 COPY ./php.ini /usr/local/etc/php/php.ini
 
-WORKDIR /data
+WORKDIR /var/www/html

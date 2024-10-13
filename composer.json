@@ -5,5 +5,7 @@
             "Tamagoage\\PetDiary\\": "src/"
         }
     },
-    "require": {}
+    "require": {
+        "eftec/bladeone": "^4.15"
+    }
 }
