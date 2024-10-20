@@ -1,11 +1,6 @@
 parameters:
 	ignoreErrors:
 		-
-			message: "#^Method Tests\\\\CalculatorTest\\:\\:test_合計金額\\(\\) has no return type specified\\.$#"
+			message: "#^Unreachable statement \\- code above always terminates\\.$#"
 			count: 1
-			path: tests/CalculatorTest.php
-
-		-
-			message: "#^Method Tests\\\\CalculatorTest\\:\\:test最初の金額から次の金額を引いた金額\\(\\) has no return type specified\\.$#"
-			count: 1
-			path: tests/CalculatorTest.php
+			path: src/Core/Request.php
