@@ -5,6 +5,7 @@ services:
       dockerfile: ./docker/php/Dockerfile
     volumes:
       - ./:/var/www/html
+      - vendor_volume:/var/www/html/vendor
     depends_on:
       - db
     networks:
@@ -37,6 +38,7 @@ services:
 
 volumes:
   db-store:
+  vendor_volume:
 
 networks:
   app-network:
