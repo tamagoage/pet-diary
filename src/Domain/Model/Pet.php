@@ -9,7 +9,10 @@ class Pet
      */
     public function __construct(
         private int $pet_id,
-        private string $pet_name
+        private string $pet_name,
+        private PartialDate $birthday,
+        private bool|null $sex,
+        private string|null $breed
     ){}
 
     /**
@@ -23,5 +26,20 @@ class Pet
     public function getPetName(): string
     {
         return $this->pet_name;
+    }
+
+    public function getPetBirthday(): PartialDate
+    {
+        return $this->birthday;
+    }
+
+    public function getPetSex(): bool|null
+    {
+        return $this->sex;
+    }
+
+    public function getPetBreed(): string|null
+    {
+        return $this->breed;
     }
 }
