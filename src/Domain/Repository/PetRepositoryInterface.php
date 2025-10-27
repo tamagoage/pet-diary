@@ -17,5 +17,10 @@ interface PetRepositoryInterface
      */
     public function getByIds(array $pet_ids): array;
 
+    /**
+     * @return list<Pet>|array{}
+     */
+    public function getAll(): array;
+
     public function save(string $pet_name): bool;
 }
