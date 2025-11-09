@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tamagoage\PetDiary\Tests\Domain\Model;
 
 use InvalidArgumentException;

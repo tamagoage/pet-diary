@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tamagoage\PetDiary\Domain\Model;
 
 class Pet
@@ -13,7 +15,8 @@ class Pet
         private PartialDate $birthday,
         private bool|null $sex,
         private string|null $breed
-    ){}
+    ) {
+    }
 
     /**
      * @return positive-int

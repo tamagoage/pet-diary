@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tamagoage\PetDiary\Core;
 
 /**
  * @return string
  */
-Class Request
+class Request
 {
     public function getPath(): string
     {
@@ -19,7 +21,7 @@ Class Request
 
         $hasQuestion = strpos($path, '?');
         
-        if($hasQuestion) {
+        if ($hasQuestion) {
             $path = substr($path, 0, $hasQuestion);
         }
 
