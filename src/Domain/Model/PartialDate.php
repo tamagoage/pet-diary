@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Tamagoage\PetDiary\Domain\Model;
 
 use InvalidArgumentException;
 
 class PartialDate
 {
-    private const MIN_YEAR = 1950; 
+    private const MIN_YEAR = 1950;
 
     /**
      * @param positive-int $year
@@ -17,7 +19,7 @@ class PartialDate
         private int $year,
         private int|null $month,
         private int|null $day
-    ){
+    ) {
         $this->validateYear();
         $this->validateMonthDayDependency();
         $this->validateMonth();
