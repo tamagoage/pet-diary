@@ -22,5 +22,5 @@ interface PetRepositoryInterface
      */
     public function getAll(): array;
 
-    public function save(string $pet_name): bool;
+    public function save(Pet $pet): bool;
 }
