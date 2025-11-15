@@ -15,44 +15,57 @@ class PartialDate
      * @param positive-int|null $month
      * @param positive-int|null $day
      */
-    public function __construct(
+    private function __construct(
         private int $year,
         private int|null $month,
         private int|null $day
     ) {
-        $this->validateYear();
-        $this->validateMonthDayDependency();
-        $this->validateMonth();
-        $this->validateFullDate();
     }
 
-    private function validateYear(): void
+    public static function fromInts(
+        int $year,
+        int|null $month,
+        int|null $day
+    ): self {
+        self::validateYear($year);
+        self::validateMonth($month);
+        self::validateMonthDayDependency($month, $day);
+        self::validateFullDate($year, $month, $day);
+        
+        return new self(
+            $year,
+            $month,
+            $day
+        );
+    }
+
+    private static function validateYear(int $year): void
     {
         $current_year = (int)date('Y');
-        if ($this->year < self::MIN_YEAR || $this->year > $current_year) {
+        if ($year < self::MIN_YEAR || $year > $current_year) {
             throw new InvalidArgumentException("西暦の値が異常です");
         }
     }
 
-    private function validateMonthDayDependency(): void
+    private static function validateMonthDayDependency(int|null $day, int|null $month): void
     {
-        if ($this->day !== null && $this->month === null) {
+        if ($day !== null && $month === null) {
             throw new InvalidArgumentException("月が欠落しています");
         }
     }
 
-    private function validateMonth(): void
+    private static function validateMonth(int|null $month): void
     {
-        if ($this->month !== null && ($this->month < 1 || $this->month > 12)) {
+        if ($month !== null && ($month < 1 || $month > 12)) {
             throw new InvalidArgumentException("月の値が異常です");
         }
     }
 
-    private function validateFullDate(): void
+    private static function validateFullDate(int $year, int|null $month, int|null $day): void
     {
-        if ($this->month !== null && $this->day !== null) {
-            if (!checkdate($this->month, $this->day, $this->year)) {
-                throw new InvalidArgumentException("{$this->year}年{$this->month}月{$this->day}日は存在しない日付です");
+        if ($month !== null && $day !== null) {
+            if (!checkdate($month, $day, $year)) {
+                throw new InvalidArgumentException("{$year}年{$month}月{$day}日は存在しない日付です");
             }
         }
     }
