@@ -37,6 +37,7 @@ class PartialDateTest extends TestCase
     public function test異常系_月が不正(): void
     {
         $this->expectException(InvalidArgumentException::class);
+        //@phpstan-ignore-next-line
         new PartialDate(2025, 0, null);
     }
 

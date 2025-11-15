@@ -14,7 +14,7 @@ interface PetRepositoryInterface
     public function getById(int $pet_id): ?Pet;
 
     /**
-     * @param list<positive-int> $ped_ids
+     * @param list<positive-int> $pet_ids
      * @return list<Pet>|array{}
      */
     public function getByIds(array $pet_ids): array;
