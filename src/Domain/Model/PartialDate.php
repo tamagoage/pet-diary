@@ -69,4 +69,19 @@ class PartialDate
             }
         }
     }
+
+    public function getYear(): int
+    {
+        return $this->year;
+    }
+
+    public function getMonth(): int|null
+    {
+        return $this->month;
+    }
+
+    public function getDay(): int|null
+    {
+        return $this->day;
+    }
 }
