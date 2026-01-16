@@ -11,15 +11,3 @@ parameters:
 			identifier: missingType.return
 			count: 1
 			path: src/Infra/Core/Router.php
-
-		-
-			message: '#^Call to new Tamagoage\\PetDiary\\Domain\\Model\\PartialDate\(\) on a separate line has no effect\.$#'
-			identifier: new.resultUnused
-			count: 3
-			path: tests/Domain/Model/PartialDateTest.php
-
-		-
-			message: '#^Cannot instantiate class Tamagoage\\PetDiary\\Domain\\Model\\PartialDate via private constructor Tamagoage\\PetDiary\\Domain\\Model\\PartialDate\:\:__construct\(\)\.$#'
-			identifier: new.privateConstructor
-			count: 5
-			path: tests/Domain/Model/PartialDateTest.php

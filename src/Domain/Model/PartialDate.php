@@ -47,7 +47,7 @@ class PartialDate
         }
     }
 
-    private static function validateMonthDayDependency(int|null $day, int|null $month): void
+    private static function validateMonthDayDependency(int|null $month, int|null $day): void
     {
         if ($day !== null && $month === null) {
             throw new InvalidArgumentException("月が欠落しています");
