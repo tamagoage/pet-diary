@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tamagoage\PetDiary\Tests\Domain\Model;
+namespace Tamagoage\PetDiary\Tests\Domain\ValueObject;
 
 use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
-use Tamagoage\PetDiary\Domain\Model\PartialDate;
+use Tamagoage\PetDiary\Domain\ValueObject\PartialDate;
 
 class PartialDateTest extends TestCase
 {

@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tamagoage\PetDiary\Domain\Model;
+namespace Tamagoage\PetDiary\Domain\Entity;
+
+use Tamagoage\PetDiary\Domain\ValueObject\PartialDate;
 
 class Pet
 {
