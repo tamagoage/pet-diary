@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tamagoage\PetDiary\Domain\Model;
+namespace Tamagoage\PetDiary\Domain\ValueObject;
 
 use InvalidArgumentException;
 
