@@ -5,45 +5,59 @@ declare(strict_types=1);
 namespace Tamagoage\PetDiary\Domain\Entity;
 
 use Tamagoage\PetDiary\Domain\ValueObject\PartialDate;
+use Tamagoage\PetDiary\Domain\ValueObject\PetName;
 
 class Pet
 {
     /**
      * @param positive-int $pet_id
      */
-    public function __construct(
+    private function __construct(
         private int $pet_id,
-        private string $pet_name,
+        private PetName $pet_name,
         private PartialDate $birthday,
         private bool|null $sex,
         private string|null $breed
     ) {
     }
 
-    /**
-     * @return positive-int
-     */
-    public function getPetId(): int
+    public static function create(
+        int $pet_id,
+        PetName $pet_name,
+        PartialDate $birthday,
+        bool|null $sex,
+        string|null $breed
+    ): self {
+        return new self(
+            $pet_id,
+            $pet_name,
+            $birthday,
+            $sex,
+            $breed
+        );
+    }
+
+    public function getId(): int
     {
         return $this->pet_id;
     }
 
-    public function getPetName(): string
+    public function getPetName(): PetName
     {
         return $this->pet_name;
     }
 
-    public function getPetBirthday(): PartialDate
+    public function getBirthday(): PartialDate
     {
         return $this->birthday;
     }
 
-    public function getPetSex(): bool|null
+    public function getSex(): bool|null
     {
         return $this->sex;
     }
 
-    public function getPetBreed(): string|null
+    public function getBreed(): bool|null
     {
         return $this->breed;
     }
