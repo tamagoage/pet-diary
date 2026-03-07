@@ -15,12 +15,12 @@ interface PetRepository
 
     /**
      * @param list<positive-int> $pet_ids
-     * @return list<ValueObjectPet>|array{}
+     * @return list<Pet>|array{}
      */
     public function getByIds(array $pet_ids): array;
 
     /**
-     * @return list<ValueObjectPet>|array{}
+     * @return list<Pet>|array{}
      */
     public function getAll(): array;
 
