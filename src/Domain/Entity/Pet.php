@@ -9,11 +9,9 @@ use Tamagoage\PetDiary\Domain\ValueObject\PetName;
 
 class Pet
 {
-    /**
-     * @param positive-int $pet_id
-     */
+    // pet_idは連番なのでcreate時には受け取れない
     private function __construct(
-        private int $pet_id,
+        private int|null $pet_id,
         private PetName $pet_name,
         private PartialDate $birthday,
         private bool|null $sex,
@@ -22,14 +20,13 @@ class Pet
     }
 
     public static function create(
-        int $pet_id,
         PetName $pet_name,
         PartialDate $birthday,
         bool|null $sex,
         string|null $breed
     ): self {
         return new self(
-            $pet_id,
+            null,
             $pet_name,
             $birthday,
             $sex,
@@ -37,11 +34,11 @@ class Pet
         );
     }
 
-    public function getId(): int
+    public function getPetId(): int|null
     {
         return $this->pet_id;
     }
-
+    
     public function getPetName(): PetName
     {
         return $this->pet_name;
@@ -57,7 +54,7 @@ class Pet
         return $this->sex;
     }
 
-    public function getBreed(): bool|null
+    public function getBreed(): string|null
     {
         return $this->breed;
     }
