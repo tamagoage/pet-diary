@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 require_once __DIR__ . '/../bootstrap.php';
 
-use Tamagoage\PetDiary\Core\Request;
-use Tamagoage\PetDiary\Core\Router;
+use Tamagoage\PetDiary\Infra\Core\Request;
+use Tamagoage\PetDiary\Infra\Core\Router;
 
 $request = new Request();
 $router = new Router($request);

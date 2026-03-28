@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tamagoage\PetDiary\Core;
+namespace Tamagoage\PetDiary\Infra\Core;
 
 /**
  * @return string
