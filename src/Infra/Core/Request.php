@@ -11,19 +11,15 @@ class Request
 {
     public function getPath(): string
     {
-        $path = $_SERVER['REQUEST_URI'] ?? null;
+        $url = $_SERVER['REQUEST_URI'] ?? null;
 
-        if ($path === null) {
+        if ($url === null) {
             header("HTTP/1.1 404 Not Found");
             echo "404 - ないよー";
             exit();
         }
 
-        $hasQuestion = strpos($path, '?');
-        
-        if ($hasQuestion) {
-            $path = substr($path, 0, $hasQuestion);
-        }
+        $path = parse_url($url, PHP_URL_PATH);
 
         return $path;
     }

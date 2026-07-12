@@ -5,14 +5,21 @@ declare(strict_types=1);
 require_once __DIR__ . '/../bootstrap.php';
 
 use Tamagoage\PetDiary\Infra\Core\Request;
+use Tamagoage\PetDiary\Infra\Core\Route;
 use Tamagoage\PetDiary\Infra\Core\Router;
 
-$request = new Request();
-$router = new Router($request);
-
 // ルートを定義
-$router->get('/home', function () {
-    echo "getがうまく機能している";
-});
+$routes = [
+    Route::get(
+        '/home',
+        static function (): void {
+            echo "Routeクラスが有効";
+        },
+    ),
+];
 
-$router->resolve();
+$router = new Router(new Request(), $routes);
+
+$route = $router->resolve();
+$handler = $route->handler();
+$handler();
