@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tamagoage\PetDiary\Infra\Core;
 
+use Tamagoage\PetDiary\Infra\Core\Exception\RouteNotFoundException;
+
 class Router
 {
     /**
@@ -26,8 +28,6 @@ class Router
             }
         }
 
-        header("HTTP/1.1 404 Not Found");
-        echo "404 - ないよー";
-        exit();
+        throw new RouteNotFoundException();
     }
 }

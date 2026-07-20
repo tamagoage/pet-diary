@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Tamagoage\PetDiary\Infra\Core;
 
+use Tamagoage\PetDiary\Infra\Core\Exception\BadRequestException;
+
 /**
  * @return string
  */
@@ -14,9 +16,7 @@ class Request
         $url = $_SERVER['REQUEST_URI'] ?? null;
 
         if ($url === null) {
-            header("HTTP/1.1 404 Not Found");
-            echo "404 - ないよー";
-            exit();
+            throw new BadRequestException();
         }
 
         $path = parse_url($url, PHP_URL_PATH);
