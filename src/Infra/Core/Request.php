@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tamagoage\PetDiary\Core;
+namespace Tamagoage\PetDiary\Infra\Core;
+
+use Tamagoage\PetDiary\Infra\Core\Exception\BadRequestException;
 
 /**
  * @return string
@@ -11,19 +13,13 @@ class Request
 {
     public function getPath(): string
     {
-        $path = $_SERVER['REQUEST_URI'] ?? null;
+        $url = $_SERVER['REQUEST_URI'] ?? null;
 
-        if ($path === null) {
-            header("HTTP/1.1 404 Not Found");
-            echo "404 - ないよー";
-            exit();
+        if ($url === null) {
+            throw new BadRequestException();
         }
 
-        $hasQuestion = strpos($path, '?');
-        
-        if ($hasQuestion) {
-            $path = substr($path, 0, $hasQuestion);
-        }
+        $path = parse_url($url, PHP_URL_PATH);
 
         return $path;
     }

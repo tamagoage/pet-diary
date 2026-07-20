@@ -2,35 +2,32 @@
 
 declare(strict_types=1);
 
-namespace Tamagoage\PetDiary\Core;
+namespace Tamagoage\PetDiary\Infra\Core;
+
+use Tamagoage\PetDiary\Infra\Core\Exception\RouteNotFoundException;
 
 class Router
 {
+    /**
+     * @param list<Route> $routes
+     */
     public function __construct(
-        public Request $request,
-        public array $routes = []
+        private readonly Request $request,
+        private readonly array $routes,
     ) {
     }
 
-    public function get(string $path, callable $callback): void
-    {
-        $this->routes['GET'][$path] = $callback;
-    }
-
-    public function resolve()
+    public function resolve(): Route
     {
         $method = $this->request->getMethod();
         $path = $this->request->getPath();
-
-        $callback = $this->routes[$method][$path] ?? null;
-        if ($callback === null) {
-            header("HTTP/1.1 404 Not Found");
-            echo "404 - ないよー";
-            exit();
+        
+        foreach ($this->routes as $route) {
+            if ($route->matches($method, $path)) {
+                return $route;
+            }
         }
 
-        var_dump($callback);
-
-        call_user_func($callback);
+        throw new RouteNotFoundException();
     }
 }
