@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Tamagoage\PetDiary\Domain\Repository;
 
-use Tamagoage\PetDiary\Domain\Model\Pet;
+use Tamagoage\PetDiary\Domain\Entity\Pet;
 
 interface PetRepositoryInterface
 {
     /**
      * @param positive-int $pet_id
      */
-    public function getById(int $pet_id): ?Pet;
+    public function getById(int $pet_id): Pet|null;
 
     /**
      * @param list<positive-int> $pet_ids
