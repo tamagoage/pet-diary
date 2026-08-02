@@ -22,10 +22,10 @@ jobs:
         run: composer install --prefer-dist --no-interaction --no-progress
 
       - name: Run PHPUnit
-        run: composer test
+        run: composer phpunit
 
       - name: Run PHPStan
-        run: composer stan
+        run: composer phpstan
 
       - name: Run ECS
         run: composer ecs
