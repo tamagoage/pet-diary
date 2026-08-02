@@ -12,8 +12,8 @@
         "phpunit/phpunit": "^12.3",
         "phpstan/phpstan": "^2.1",
         "filp/whoops": "^2.18",
-        "symplify/easy-coding-standard": "^13.0",
-        "symplify/coding-standard": "^13.0"
+        "symplify/easy-coding-standard": "^13.2",
+        "symplify/coding-standard": "^13.1"
     },
     "scripts": {
         "phpunit": "phpunit",
