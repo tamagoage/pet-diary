@@ -10,7 +10,7 @@ use Tamagoage\PetDiary\Infra\Core\Request;
 
 class RequestTest extends TestCase
 {
-    //@phpstan-ignore-nextline
+    /** @var array<string, mixed> */
     private array $server;
 
     protected function setUp(): void
