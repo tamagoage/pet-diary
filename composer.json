@@ -15,6 +15,17 @@
         "symplify/easy-coding-standard": "^13.0",
         "symplify/coding-standard": "^13.0"
     },
+    "scripts": {
+        "test": "phpunit",
+        "stan": "phpstan analyse --configuration=phpstan.dist.neon",
+        "ecs": "ecs check",
+        "ecs:fix": "ecs check --fix",
+        "check": [
+            "@test",
+            "@stan",
+            "@ecs"
+        ]
+    },
     "config": {
         "platform": {
             "php": "8.5.1"
