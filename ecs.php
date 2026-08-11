@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use PhpCsFixer\Fixer\ControlStructure\TrailingCommaInMultilineFixer;
 use PhpCsFixer\Fixer\Import\NoUnusedImportsFixer;
+use PhpCsFixer\Fixer\Phpdoc\NoSuperfluousPhpdocTagsFixer;
 use PhpCsFixer\Fixer\Strict\DeclareStrictTypesFixer;
 use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayListItemNewlineFixer;
 use Symplify\CodingStandard\Fixer\ArrayNotation\ArrayOpenerAndCloserNewlineFixer;
@@ -13,19 +14,17 @@ use Symplify\CodingStandard\Fixer\Strict\BlankLineAfterStrictTypesFixer;
 use Symplify\EasyCodingStandard\Config\ECSConfig;
 use Symplify\EasyCodingStandard\ValueObject\Set\SetList;
 
-return static function (ECSConfig $ecsConfig): void {
-    $ecsConfig->paths([
+return ECSConfig::configure()
+    ->withPaths([
         __DIR__ . '/public',
         __DIR__ . '/src',
         __DIR__ . '/tests',
         __DIR__ . '/ecs.php',
-    ]);
-
-    $ecsConfig->sets([
+    ])
+    ->withSets([
         SetList::PSR_12,
-    ]);
-
-    $ecsConfig->rules([
+    ])
+    ->withRules([
         ArrayListItemNewlineFixer::class,
         ArrayOpenerAndCloserNewlineFixer::class,
         BlankLineAfterStrictTypesFixer::class,
@@ -34,5 +33,5 @@ return static function (ECSConfig $ecsConfig): void {
         DeclareStrictTypesFixer::class,
         TrailingCommaInMultilineFixer::class,
         NoUnusedImportsFixer::class,
+        NoSuperfluousPhpdocTagsFixer::class,
     ]);
-};
