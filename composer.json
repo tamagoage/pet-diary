@@ -5,6 +5,11 @@
             "Tamagoage\\PetDiary\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
     "require": {
         "eftec/bladeone": "^4.19"
     },
