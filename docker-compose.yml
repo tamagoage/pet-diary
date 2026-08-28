@@ -3,6 +3,12 @@ services:
     build:
       context: .
       dockerfile: ./docker/php/Dockerfile
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_NAME: php
+      DB_USER: phper
+      DB_PASSWORD: secret
     volumes:
       - ./:/var/www/html
       - vendor_volume:/var/www/html/vendor
