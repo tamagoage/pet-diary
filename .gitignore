@@ -2,3 +2,4 @@
 /storage/
 /debug.log
 /.phpunit.result.cache
+.env
