@@ -1,0 +1,6 @@
+interface:
+  display_name: "PetDiary Notion管理"
+  short_description: "PetDiaryの3DB・API補助DB・正本分担を安全に維持します。"
+  default_prompt: "$manage-pet-diary-notion PetDiaryのマイルストーン・タスク・資料・API補助DBを現在のコードに照合して更新してください。"
+policy:
+  allow_implicit_invocation: true
